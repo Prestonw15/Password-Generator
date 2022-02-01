@@ -1,4 +1,3 @@
-// Assignment code here
 // Variety of special characters for password
 var specialCharacters = [
   '@',
