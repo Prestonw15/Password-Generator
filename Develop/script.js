@@ -50,6 +50,43 @@ function generatePassword() {
   };
 
   if (!confirmCharacter && !confirmNumber && !confirmUppercase && !confirmLowercase) {
-      choices = alert("You must choose a criteria!");
+      choices = alert("You must choose an option!");
 
-  }
+  } 
+    // 4 positive options
+    else if (confirmCharacter && confirmNumber && confirmUppercase && confirmLowercase) {
+
+        choices = character.concat(number, alpha, alpha2);
+    }
+     // 3 positive options
+      else if (confirmCharacter && confirmNumber && confirmUppercase) {
+          choices = character.concat(number, alpha2);
+      }
+      else if (confirmCharacter && confirmNumber && confirmLowercase) {
+          choices = character.concat(number, alpha);
+      }
+      else if (confirmCharacter && confirmLowercase && confirmUppercase) {
+          choices = character.concat(alpha, alpha2);
+      }
+      else if (confirmNumber && confirmLowercase && confirmUppercase) {
+          choices = number.concat(alpha, alpha2);
+      }
+      // 2 positive options
+      else if (confirmCharacter && confirmNumber) {
+        choices = character.concat(number);
+      
+      } else if (confirmCharacter && confirmLowercase) {
+        choices = character.concat(alpha);
+
+      } else if (confirmCharacter && confirmUppercase) {
+        choices = character.concat(alpha2);
+      }
+        else if (confirmLowercase && confirmNumber) {
+        choices = alpha.concat(number);
+
+      } else if (confirmLowercase && confirmUppercase) {
+        choices = alpha.concat(alpha2);
+
+      } else if (confirmNumber && confirmUppercase) {
+        choices = number.concat(alpha2);
+      }
