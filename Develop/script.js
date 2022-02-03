@@ -27,22 +27,29 @@ alpha2 = alpha.map(toUpper);
 
 var get = document.querySelector("#generate");
 
-// adds the event listener to generate a button
-get.addEventListener('click', function () {
+// Add event listener to generate button
+get.addEventListener("click", function () {
   ps = generatePassword();
   document.getElementById("password").placeholder = ps;
 });
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+function generatePassword() {
+  // Asks for user input
+  enter = parseInt(prompt("How many characters are in your password? (Between 8 - 128 characters"));
+  // First if statement for user validation 
+  if (!enter) {
+      alert("Enter a number");
+  } else if (enter < 8 || enter > 128) {
+      enter = parseInt(prompt("You must choose between 8 and 128"));
 
-  passwordText.value = password;
+  } else {
+      confirmLowercase = confirm("Will it contain Lowercase letters?");
+      confirmUppercase = confirm("Will it contain Uppercase letters?");
+      confirmNumber = confirm("Will it contain numbers?");
+      confirmCharacter = confirm("Will it contain special characters?");
+  };
 
-}
+  if (!confirmCharacter && !confirmNumber && !confirmUppercase && !confirmLowercase) {
+      choices = alert("You must choose a criteria!");
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+  }
