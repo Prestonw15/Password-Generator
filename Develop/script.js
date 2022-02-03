@@ -90,3 +90,35 @@ function generatePassword() {
       } else if (confirmNumber && confirmUppercase) {
         choices = number.concat(alpha2);
       }
+      // 1 positive option
+      else if (confirmCharacter) {
+          choices = character;
+      }
+      else if (confirmNumber) {
+          choices = number;
+      }
+      else if (confirmLowercase) {
+          choices = alpha;
+      }
+      else if (confirmUppercase) {
+          choices = space.concat(alpha2);
+      };
+      
+      var password = [];
+
+      for (var i = 0; i < enter; i++) {
+        var pickChoices = choices[Math.floor(Math.random() * choices.length)];
+        password.push(pickChoices);
+      }
+      // Password array converts to a string
+
+      var ps = password.join("");
+      UserInput(ps);
+      return ps;
+    }
+
+    // Puts the password value into a box
+    function UserInput(ps) {
+      document.getElementById("password").textContent = ps;
+      
+    }
